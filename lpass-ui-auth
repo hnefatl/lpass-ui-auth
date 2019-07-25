@@ -1,8 +1,5 @@
 #!@bash@/bin/bash
 
-# Spotify update daemon from sda4 bin, python gobject-introspection for better spotify bar signalling.
-# Wrap up in i3blocks-scripts? Need to work out how to launch a service again...
-
 parent=$(ps -o comm= $PPID)
 username="hnefatl@gmail.com"
 
