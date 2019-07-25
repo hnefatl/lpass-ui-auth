@@ -1,0 +1,13 @@
+#!@bash@/bin/bash
+
+# Spotify update daemon from sda4 bin, python gobject-introspection for better spotify bar signalling.
+# Wrap up in i3blocks-scripts? Need to work out how to launch a service again...
+
+parent=$(ps -o comm= $PPID)
+username="hnefatl@gmail.com"
+
+while ! @lastpass_cli@/bin/lpass status --quiet ; do
+    @dunst@/bin/dunstify -A "Authenticate,$TERMINAL -e \"bash -c 'i3-msg floating enable>/dev/null ; lpass login $username'\"" -u normal "'$parent' running command '$*', requires authentication." >/dev/null
+done
+
+eval "$@"
